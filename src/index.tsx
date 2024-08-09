@@ -2,14 +2,14 @@
  * @Author: wanziwen
  * @Date: 2024-08-08 14:29:03
  * @LastEditors: wanziwen
- * @LastEditTime: 2024-08-08 18:14:21
+ * @LastEditTime: 2024-08-09 14:41:31
  * @Description: 
  * @FilePath: /my-app-ts/src/index.tsx
  */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './style/css/index.css';
+import App from './page/App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import store from './store'

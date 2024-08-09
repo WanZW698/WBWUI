@@ -2,7 +2,7 @@
  * @Author: wanziwen
  * @Date: 2024-08-08 14:49:19
  * @LastEditors: wanziwen
- * @LastEditTime: 2024-08-09 09:29:31
+ * @LastEditTime: 2024-08-09 13:30:08
  * @Description: 
  * @FilePath: /my-app-ts/src/page/mail/index.tsx
  */
@@ -110,7 +110,6 @@ const columns: TableProps<DataType>['columns'] = [
       ),
     },
 ];
-const Mail = () => {
+export default function Mail() {
   return <Table columns={columns} dataSource={data} />
 }
-export default Mail

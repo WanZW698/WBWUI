@@ -2,53 +2,97 @@
  * @Author: wanziwen
  * @Date: 2024-08-08 14:34:47
  * @LastEditors: wanziwen
- * @LastEditTime: 2024-08-09 08:55:05
+ * @LastEditTime: 2024-08-09 14:59:16
  * @Description: 
  * @FilePath: /my-app-ts/src/page/home/index.tsx
  */
 
 import React, { useEffect, useState } from 'react'
-import { Col, Row, Card, Table,Button, Layout, Avatar, } from 'antd'
-import { ClockCircleOutlined, HeartTwoTone, SmileTwoTone } from '@ant-design/icons';
-
+import { Col, Row, Card, Table, } from 'antd'
+import { ClockCircleOutlined,} from '@ant-design/icons';
 import * as Icon from '@ant-design/icons'
-import './index.css'
-import { getData } from './services'
-import { get, post } from '../../utils/http'
+import '@/style/css/home/index.css'
+import { get, post } from '@/utils/http'
 interface Icons {
     color:string,
     value:number,
     name:string
 }
 
-const Home = () => {
-    const [tableData, setTableData] = useState([])
-    const [countData, setCountData] = useState([])
-    const [homeData, setHomeData] = useState({})
-    useEffect(() =>{
-        getList()
-        getOrder()
-    },[])
-    // const iconToElement = (name:keyof typeof Icon) => React.createElement(Icon[name])
-    // 获取卖商品
-    const getList = () => {
-        // 本地跑了一个node接口测试数据展示
-        get('http://localhost:3000/api/data').then(res => {
-            let {data} = res.data
-            setTableData(data)
-        }).catch(err => {
-            console.log("err的值")
-        })
-    }
-    // 获取订单列表
-    const getOrder = () => {
-        get('http://localhost:3000/api/list').then(res => {
-            console.log("res.data",res)
-            setCountData(res.data.data)
-        }).catch(err => {
-            console.log("err的值")
-        })
-    }
+export default function Home() {
+    const tableData:any = [{
+        name: 'oppo',
+        todayBuy: 500,
+        monthBuy: 3500,
+        totalBuy: 22000
+      },
+      {
+        name: 'vivo',
+        todayBuy: 300,
+        monthBuy: 2200,
+        totalBuy: 24000
+      },
+      {
+        name: '苹果',
+        todayBuy: 800,
+        monthBuy: 4500,
+        totalBuy: 65000
+      },
+      {
+        name: '小米',
+        todayBuy: 1200,
+        monthBuy: 6500,
+        totalBuy: 45000
+      },
+      {
+        name: '三星',
+        todayBuy: 300,
+        monthBuy: 2000,
+        totalBuy: 34000
+      },
+      {
+        name: '魅族',
+        todayBuy: 350,
+        monthBuy: 3000,
+        totalBuy: 22000
+    }]
+    
+    const countData:any=[{
+        name: '今日支付订单',
+        value: 1234,
+        icon: 'PayCircleOutlined',
+        color: '#33d294'
+      },
+      {
+        name: '今日收藏订单',
+        value: 4545,
+        icon: 'HeartOutlined',
+        color: '#ff6a4d'
+      },
+      {
+        name: '今日未支付订单',
+        value: 1234,
+        icon: 'CloseCircleOutlined',
+        color: '#5ab1ef'
+      },
+      {
+        name: '本月支付订单',
+        value: 1234,
+        icon: 'PayCircleOutlined',
+        color: '#33d294'
+      },
+      {
+        name: '本月收藏订单',
+        value: 666,
+        icon: 'HeartOutlined',
+        color: '#ff6a4d'
+      },
+      {
+        name: '本月未支付订单',
+        value: 3423,
+        icon: 'CloseCircleOutlined',
+        color: '#5ab1ef'
+    }]
 
     const columns = [
         {
@@ -72,7 +116,6 @@ const Home = () => {
           dataIndex: 'totalBuy'
         }
     ]
-    // const iconToElement = (name:string) => React.createElement(Icon[name])
     return (
         <Row className='home' gutter={20}>
             <Col span={8}>
@@ -103,7 +146,7 @@ const Home = () => {
             </Col>
             <Col span={16}>
                 <div className='num'>
-                {countData.map((item:Icons, index) => {
+                {countData.map((item:Icons, index:number) => {
                     return (
                     <Card key={index} style={{
                         margin: '0px 0px 18px 0px',
@@ -125,4 +168,3 @@ const Home = () => {
         </Row>
     )
 }
-export default Home

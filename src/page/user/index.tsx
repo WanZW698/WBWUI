@@ -2,18 +2,11 @@
  * @Author: wanziwen
  * @Date: 2024-08-08 14:35:03
  * @LastEditors: wanziwen
- * @LastEditTime: 2024-08-09 09:28:44
+ * @LastEditTime: 2024-08-09 13:32:19
  * @Description: 
  * @FilePath: /my-app-ts/src/page/user/index.tsx
  */
-/*
- * @Author: wanziwen
- * @Date: 2024-08-08 14:49:19
- * @LastEditors: wanziwen
- * @LastEditTime: 2024-08-09 09:13:08
- * @Description: 
- * @FilePath: /my-app-ts/src/page/mail/index.tsx
- */
+
 import React from 'react';
 import { Space, Table, Tag } from 'antd';
 import type { TableProps } from 'antd';
@@ -118,7 +111,7 @@ const columns: TableProps<DataType>['columns'] = [
       ),
     },
 ];
-const User = () => {
+
+export default function User() {
   return <Table columns={columns} dataSource={data} />
 }
-export default User

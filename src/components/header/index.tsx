@@ -2,21 +2,19 @@
  * @Author: wanziwen
  * @Date: 2024-08-08 15:08:04
  * @LastEditors: wanziwen
- * @LastEditTime: 2024-08-08 16:01:39
+ * @LastEditTime: 2024-08-09 13:39:26
  * @Description: 
  * @FilePath: /my-app-ts/src/components/header/index.tsx
  */
-/* src/components/header.js */
 import React, { useState } from 'react'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
-import { Button, Layout, Avatar } from 'antd'
+import { Button,Layout,} from 'antd'
 
 const { Header, Sider, Content } = Layout
-
-const MyHeader = (props:any) => {
+export default function MyHeader(props:any) {
   const { collapsed, setCollapsed } = props
   return (
-    <Header  style={{
+    <Header style={{
         padding: 0,
         background:"#fff"
       }}>
@@ -33,4 +31,3 @@ const MyHeader = (props:any) => {
     </Header>
   )
 }
-export default MyHeader

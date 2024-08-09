@@ -1,0 +1,24 @@
+# 配置文件的版本为3
+version: '3.5'
+# 服务列表
+services:
+  nginx:
+      image: nginx
+      container_name: WbWAi
+      ports:
+        - 80:80
+      restart: unless-stopped
+      volumes:
+        - ./nginx:/etc/nginx/conf.d/
+        - ./build:/usr/share/nginx/html
+        - ./logs:/var/log/nginx
+      # --network: host
+  # # 服务名称为 DockerDemo
+  # DockerDemo:
+  #     # 镜像名称
+  # image: docker-test
+  #     # 容器名称
+  # container_name: docker-test
+  #   # 端口映射，7000 端口为主机端口，80 端口为容器端口
+  # ports:
+  # - "7000:80"

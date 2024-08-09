@@ -6,9 +6,9 @@ import Aside from './components/aside'
 import MyHeader from './components/header'
 import { Outlet } from 'react-router-dom'
 
-const { Header, Sider, Content } = Layout
+const {Content } = Layout
 
-const MyLayout = () => {
+export default function MyLayout() {
   const [collapsed, setCollapsed] = useState(false)
   const {
     token: { colorBgContainer, borderRadiusLG }
@@ -33,5 +33,4 @@ const MyLayout = () => {
     </Layout>
   )
 }
-export default MyLayout
 
